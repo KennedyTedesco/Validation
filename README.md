@@ -246,7 +246,7 @@ Soon.
 Soon.
 
 
-### FOthers
+### Others
 
 + cnh
 + cnpj
