@@ -30,7 +30,7 @@ class ValidationServiceProvider extends ServiceProvider
      protected function getAllRespectRules()
      {
         $rules = array();
-        $files = new \FilesystemIterator(__DIR__.'\\Respect\\Rules');
+        $files = new \FilesystemIterator(__DIR__ . '/Respect/Rules');
         foreach ($files as $file) {
            if ($file->isFile()) {
                $rules = array_merge($rules, require $file->getPathname());
