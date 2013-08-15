@@ -28,7 +28,7 @@ class Validator
      * @param array $args
      * @return bool
      */      
-    protected function validate($rule, $value, array $args = [])
+    protected function validate($rule, $value, array $args)
     {
         try {
             $validatorClass = new \ReflectionClass($rule);
