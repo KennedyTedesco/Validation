@@ -4,5 +4,5 @@ return array(
     'date',
     'leap_date'     => 'leapDate',
     'leap_year'     => 'leapYear',
-	'minimum_age'   => 'minimumAge',
+    'minimum_age'   => 'minimumAge',
 );
