@@ -1,4 +1,5 @@
 <?php
+
 return array(
     'between',
     'bool',
@@ -7,12 +8,12 @@ return array(
     'int',
     'multiple',
     'negative',
-    'not_empty'         => 'notEmpty',
+    'notEmpty',
     'numeric',
     'odd',
-    'perfect_square'    => 'perfectSquare',
+    'perfectSquare',
     'positive',
-    'prime_number'      => 'primeNumber',
+    'primeNumber',
     'roman',
-    'xdigit',  
+    'xdigit',
 );

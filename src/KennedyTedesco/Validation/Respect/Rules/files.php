@@ -1,10 +1,11 @@
 <?php
+
 return array(
     'directory',
     'exists',
     'file',
     'readable',
-    'symbolic_link'  => 'symbolicLink',
+    'symbolicLink',
     'uploaded',
-    'writable',    
+    'writable',
 );

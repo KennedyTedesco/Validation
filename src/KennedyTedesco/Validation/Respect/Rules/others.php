@@ -1,14 +1,14 @@
 <?php
+
 return array(
     'cnh',
     'cnpj',
     'cpf',
+    'creditCard',
     'domain',
-    'email',
-    'ip',
     'json',
-    'mac_address' => 'macAddress',
+    'macAddress',
     'phone',
-    'sf',
-    'zend',
+    //'sf',
+    //'zend',
 );
