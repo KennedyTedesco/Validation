@@ -84,7 +84,8 @@ class CustomValidator extends \Illuminate\Validation\Validator
      */
     public function validateMinimumAge($attribute, $value, $parameters)
     {
-        return RuleFactory::make('MinimumAge', array((int) $parameters[0]))->validate($value);
+        $parameter = (int) $parameters[0];
+        return RuleFactory::make('MinimumAge', array($parameter))->validate($value);
     }
 
     /**
