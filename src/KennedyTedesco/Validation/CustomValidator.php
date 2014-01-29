@@ -10,7 +10,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
      * All supported rules.
      *
      * @var array
-     */    
+     */
     protected $_validRules = array();
 
     /**
@@ -21,57 +21,59 @@ class CustomValidator extends \Illuminate\Validation\Validator
      * @param  array  $rules
      * @param  array  $messages
      * @return void
-     */    
-    public function __construct(TranslatorInterface $translator, $data, $rules, $messages = array()) {
+     */
+    public function __construct(TranslatorInterface $translator, $data, $rules, $messages = array())
+    {
         parent::__construct($translator, $data, $rules, $messages);
         $this->_validRules = $this->getValidRules();
     }
-  
+
     /**
      * Handle dynamic calls to class methods.
      *
      * @param  string  $method
      * @param  array   $parameters
      * @return mixed
-     */    
+     */
     public function __call($method, $parameters)
     {
         $rule = lcfirst(substr($method, 8));
 
-        if (in_array($rule, $this->_validRules))
-        {           
-            $args   = $parameters[2];
-            $value  = $parameters[1];
-            
+        if (in_array($rule, $this->_validRules)) {
+            $args = $parameters[2];
+            $value = $parameters[1];
+
             try {
                 $ruleObject = RuleFactory::make($rule, $args);
             } catch (Exception $e) {
                 throw new Exception($e->getMessage());
             }
 
-            return $ruleObject->validate($value);   
+            return $ruleObject->validate($value);
         }
-        
+
         parent::__call($method, $parameters);
     }
-    
+
     /**
      * Get all supported rules from Respect.
      *
      * @return bool
-     */  
+     */
     protected function getValidRules()
     {
-       $rules = array();
-       $files = new \FilesystemIterator(__DIR__ . '/Respect/Rules');
-       foreach ($files as $file) {
-          if ($file->isFile()) {
-              $rules = array_merge($rules, require $file->getPathname());
-          }
-       }
-       return array_unique($rules, SORT_REGULAR);
+        $rules = array();
+        $files = new \FilesystemIterator(__DIR__ . '/Respect/Rules');
+        
+        foreach ($files as $file) {
+            if ($file->isFile()) {
+                $rules = array_merge($rules, require $file->getPathname());
+            }
+        }
+        
+        return array_unique($rules, SORT_REGULAR);
     }
-    
+
     /**
      * Validate a minimum age.
      *
@@ -82,7 +84,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
      */
     public function validateMinimumAge($attribute, $value, $parameters)
     {
-        return RuleFactory::make('MinimumAge', array((int)$parameters[0]))->validate($value);
+        return RuleFactory::make('MinimumAge', array((int) $parameters[0]))->validate($value);
     }
 
     /**
@@ -111,7 +113,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
     {
         return str_replace(':age', $parameters[0], $message);
     }
-    
+
     /**
      * Replace all place-holders for the Contains rule.
      *
@@ -125,7 +127,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
     {
         return str_replace(':value', $parameters[0], $message);
     }
-    
+
     /**
      * Replace all place-holders for the Charset rule.
      *
@@ -139,7 +141,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
     {
         return str_replace(':charset', $parameters[0], $message);
     }
-    
+
     /**
      * Replace all place-holders for the EndsWith rule.
      *
@@ -153,7 +155,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
     {
         return str_replace(':value', $parameters[0], $message);
     }
-    
+
     /**
      * Replace all place-holders for the Multiple rule.
      *
@@ -166,5 +168,5 @@ class CustomValidator extends \Illuminate\Validation\Validator
     protected function replaceMultiple($message, $attribute, $rule, $parameters)
     {
         return str_replace(':value', $parameters[0], $message);
-    }    
+    }
 }

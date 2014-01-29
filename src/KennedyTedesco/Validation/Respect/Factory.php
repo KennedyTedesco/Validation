@@ -7,12 +7,13 @@ class Factory
 
     public static function make($rule, array $parameters)
     {
-        $class = self::RULE_PATH . ucfirst($rule);       
+        $class = self::RULE_PATH . ucfirst($rule);
+        
         try {
             $validatorClass = new \ReflectionClass($class);
-            return $validatorClass->newInstanceArgs($parameters);     
+            return $validatorClass->newInstanceArgs($parameters);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
-        }   
-    }   
+        }
+    }
 }
