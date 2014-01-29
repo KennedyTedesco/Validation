@@ -62,13 +62,27 @@ class CustomValidator extends \Illuminate\Validation\Validator
      */
     protected function getValidRules()
     {
-        $rules = array();
-        $files = new \FilesystemIterator(__DIR__ . '/Respect/Rules');
+        $rulePath = __DIR__ . '/Respect/Rules/';
         
-        foreach ($files as $file) {
-            if ($file->isFile()) {
-                $rules = array_merge($rules, require $file->getPathname());
-            }
+        $ruleFiles = array(
+            'arrays',
+            'comparing',
+            'date',
+            'files',
+            'generics',
+            'numeric',
+            'objects',
+            'others',
+            'regional',
+            'strings',
+            'types'
+        );
+        
+        $rules = array();
+
+        foreach ($ruleFiles as $ruleName) {
+            $filename = $rulePath . $ruleName . '.php';
+            $rules = array_merge($rules, require $filename);
         }
         
         return array_unique($rules, SORT_REGULAR);
