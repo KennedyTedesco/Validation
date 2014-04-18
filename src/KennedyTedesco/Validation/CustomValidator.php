@@ -52,7 +52,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
             return $ruleObject->validate($value);
         }
 
-        parent::__call($method, $parameters);
+        return parent::__call($method, $parameters);
     }
 
     /**
