@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.4",
         "respect/validation": "0.8.0",
         "illuminate/support": "5.0.*@dev"
     },
