@@ -21,11 +21,12 @@ class Validator extends BaseValidator
      * @param  array  $data
      * @param  array  $rules
      * @param  array  $messages
+     * @param  array  $customAttributes
      * @return void
      */
-    public function __construct(TranslatorInterface $translator, $data, $rules, $messages = array())
+    public function __construct(TranslatorInterface $translator, array $data, array $rules, array $messages = [], array $customAttributes = [])
     {
-        parent::__construct($translator, $data, $rules, $messages);
+        parent::__construct($translator, $data, $rules, $messages, $customAttributes);
 
         $this->_validRules = $this->getValidRules();
     }
@@ -44,9 +45,7 @@ class Validator extends BaseValidator
         if (in_array($rule, $this->_validRules)) {
             $args = $parameters[2];
             $value = $parameters[1];
-
             $ruleObject = RuleFactory::make($rule, $args);
-
             return $ruleObject->validate($value);
         }
 

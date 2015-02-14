@@ -2,10 +2,16 @@
 namespace KennedyTedesco\Validation;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Validation\Validator as BaseValidator;
 
 class ValidationServiceProvider extends ServiceProvider
 {
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register() {}
+
     /**
      * Bootstrap the application events.
      *
@@ -13,18 +19,8 @@ class ValidationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        BaseValidator::resolver(function($translator, $data, $rules, $messages) {
+        $this->app['validator']->resolver(function($translator, $data, $rules, $messages) {
             return new Validator($translator, $data, $rules, $messages);
         });
-    }
-
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }
