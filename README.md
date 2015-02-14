@@ -11,7 +11,7 @@ In the **require** key of **composer.json** file add the following:
 "kennedytedesco/validation": "~1.0"
 ```
 
-**Important: ** Do not use `dev-master`. Instead, use the tagged version, like shown before.
+**Important:** Do not use `dev-master`. Instead, use the tagged version, like shown before.
 
 Run the Composer **update** comand:
 
