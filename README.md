@@ -1,7 +1,15 @@
-Validation (Laravel 4 Package)
+Validation (Laravel Package)
 ==========
 
 *"The power of 'Respect Validation' on Laravel"*
+
+### Laravel 5
+
+In the **require** key of **composer.json** file add the following:
+
+```php
+"kennedytedesco/validation": "~2.0"
+```
 
 ### Laravel 4.2 and Below
 
