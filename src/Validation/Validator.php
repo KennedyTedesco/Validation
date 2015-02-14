@@ -2,16 +2,17 @@
 namespace KennedyTedesco\Validation;
 
 use Symfony\Component\Translation\TranslatorInterface;
+use Illuminate\Validation\Validator as BaseValidator;
 use KennedyTedesco\Validation\Respect\Factory as RuleFactory;
 
-class CustomValidator extends \Illuminate\Validation\Validator
+class Validator extends BaseValidator
 {
     /**
      * All supported rules.
      *
      * @var array
      */
-    protected $_validRules = array();
+    private $_validRules = [];
 
     /**
      * Create a new Validator instance.
@@ -25,6 +26,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
     public function __construct(TranslatorInterface $translator, $data, $rules, $messages = array())
     {
         parent::__construct($translator, $data, $rules, $messages);
+
         $this->_validRules = $this->getValidRules();
     }
 
@@ -43,11 +45,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
             $args = $parameters[2];
             $value = $parameters[1];
 
-            try {
-                $ruleObject = RuleFactory::make($rule, $args);
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
+            $ruleObject = RuleFactory::make($rule, $args);
 
             return $ruleObject->validate($value);
         }
@@ -62,30 +60,9 @@ class CustomValidator extends \Illuminate\Validation\Validator
      */
     protected function getValidRules()
     {
-        $rulePath = __DIR__ . '/Respect/Rules/';
-        
-        $ruleFiles = array(
-            'arrays',
-            'comparing',
-            'date',
-            'files',
-            'generics',
-            'numeric',
-            'objects',
-            'others',
-            'regional',
-            'strings',
-            'types'
-        );
-        
-        $rules = array();
+        $path = __DIR__ . '/Respect/Rules.php';
 
-        foreach ($ruleFiles as $ruleName) {
-            $filename = $rulePath . $ruleName . '.php';
-            $rules = array_merge($rules, require $filename);
-        }
-        
-        return array_unique($rules, SORT_REGULAR);
+        return array_unique(require $path, SORT_REGULAR);
     }
 
     /**

@@ -1,7 +1,10 @@
 <?php
 namespace KennedyTedesco\Validation;
 
-class ValidationServiceProvider extends \Illuminate\Support\ServiceProvider
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Validator as BaseValidator;
+
+class ValidationServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application events.
@@ -10,8 +13,8 @@ class ValidationServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-        \Validator::resolver(function($translator, $data, $rules, $messages) {
-            return new CustomValidator($translator, $data, $rules, $messages);
+        BaseValidator::resolver(function($translator, $data, $rules, $messages) {
+            return new Validator($translator, $data, $rules, $messages);
         });
     }
 
