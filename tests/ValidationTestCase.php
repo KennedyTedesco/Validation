@@ -1,28 +1,19 @@
 <?php
 
-use KennedyTedesco\Validation\ValidationServiceProvider;
-use Illuminate\Foundation\Application;
+use Illuminate\Contracts\Foundation\Application;
+use Orchestra\Testbench\TestCase;
 
-abstract class ValidationTestCase extends \PHPUnit_Framework_TestCase
+abstract class ValidationTestCase extends TestCase
 {
-    /**
-     * @return Illuminate\Foundation\Application
-     */
-    protected function setupApplication()
+    protected function getPackageProviders(Application $app)
     {
-        return new Application();
+        return [
+            'KennedyTedesco\Validation\ValidationServiceProvider'
+        ];
     }
 
-    /**
-     * @param Application $app
-     *
-     * @return KennedyTedesco\Validation\ValidationServiceProvider
-     */
-    protected function setupServiceProvider(Application $app)
+    protected function validate(array $data, array $rules)
     {
-        $provider = new ValidationServiceProvider($app);
-        $app->register($provider);
-        $provider->boot();
-        return $provider;
+        return $this->app->make('validator')->make($data, $rules);
     }
 }

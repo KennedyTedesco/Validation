@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "laravel/framework": "5.0.*@dev",
+        "orchestra/testbench": "3.0.*@dev",
         "phpunit/phpunit": "~4.0"
     },
     "autoload": {
