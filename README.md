@@ -1,15 +1,17 @@
 Validation (Laravel 4 Package)
 ==========
 
-*"The power of 'Respect Validation' on Laravel 4 Validation"*
+*"The power of 'Respect Validation' on Laravel"*
 
-### Required setup
+### Laravel 4.2 and Below
 
 In the **require** key of **composer.json** file add the following:
 
 ```php
-"kennedytedesco/validation": "dev-master"
+"kennedytedesco/validation": "~1.0"
 ```
+
+**Important: ** Do not use `dev-master`. Instead, use the tagged version, like shown before.
 
 Run the Composer **update** comand:
 
