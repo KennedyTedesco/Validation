@@ -22,7 +22,6 @@ class Validator extends BaseValidator
      * @param  array  $rules
      * @param  array  $messages
      * @param  array  $customAttributes
-     * @return void
      */
     public function __construct(TranslatorInterface $translator, array $data, array $rules, array $messages = [], array $customAttributes = [])
     {

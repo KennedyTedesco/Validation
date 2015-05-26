@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Contracts\Foundation\Application;
 use Orchestra\Testbench\TestCase;
 
 abstract class ValidationTestCase extends TestCase
 {
-    protected function getPackageProviders(Application $app)
+    protected function getPackageProviders($app)
     {
         return [
             'KennedyTedesco\Validation\ValidationServiceProvider'
