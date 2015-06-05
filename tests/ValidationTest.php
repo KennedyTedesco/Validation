@@ -61,7 +61,7 @@ class ValidationTest extends ValidationTestCase
             'xdigit'            => 'xdigit', // Hexadecimal
             'writable'          => 'writable',
             'alwaysValid'       => 'alwaysValid',
-            'bool'              => 'bool'       
+            'bool'              => 'bool'
         );
 
         $data = array(

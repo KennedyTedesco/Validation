@@ -1,7 +1,7 @@
 <?php
 
 // Composer has been run?
-if ( ! file_exists(__DIR__ . '/../composer.lock')) {
+if (! file_exists(__DIR__ . '/../composer.lock')) {
     die("You must do a 'composer install' before running the tests.");
 }
 
