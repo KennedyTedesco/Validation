@@ -7,7 +7,7 @@ Validation (Laravel Package)
 
 *"The power of 'Respect Validation' on Laravel"*
 
-### Laravel 5
+### Laravel 5.0 and Laravel 5.1
 
 In the **require** key of **composer.json** file add the following:
 
