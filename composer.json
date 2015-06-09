@@ -14,8 +14,8 @@
         "respect/validation": "~0.8.0"
     },
     "require-dev": {
-        "illuminate/support": ">=4.0.0",
-        "illuminate/validation": ">=4.0.0"
+        "illuminate/support": "4.*",
+        "illuminate/validation": "4.*"
     },            
     "autoload": {
         "psr-0": {
