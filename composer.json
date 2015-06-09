@@ -11,12 +11,12 @@
     ],
     "require": {
         "php": ">=5.4",
-        "respect/validation": "~0.8.0",
-        "illuminate/support": "5.0.*@dev"
+        "respect/validation": "~0.9",
+        "illuminate/support": "5.0.*|5.1.*"
     },
     "require-dev": {
-        "laravel/framework": "5.0.*@dev",
-        "orchestra/testbench": "3.0.*@dev",
+        "laravel/framework": "5.1.*",
+        "orchestra/testbench": "3.1.x@dev",
         "phpunit/phpunit": "~4.0"
     },
     "autoload": {
