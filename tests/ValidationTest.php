@@ -61,7 +61,11 @@ class ValidationTest extends ValidationTestCase
             'xdigit'            => 'xdigit', // Hexadecimal
             'writable'          => 'writable',
             'alwaysValid'       => 'alwaysValid',
-            'bool'              => 'bool'
+            'bool'              => 'bool',
+            'youtube'       => 'videoUrl:youtube',
+            'vimeo'         => 'videoUrl:vimeo',
+            'video1'        => 'videoUrl',
+            'video2'        => 'videoUrl',
         );
 
         $data = array(
@@ -120,7 +124,11 @@ class ValidationTest extends ValidationTestCase
             'xdigit'            => 'abc123',
             'writable'          => __FILE__,
             'alwaysValid'       => '@#$_',
-            'bool'              => is_int(2)
+            'bool'              => is_int(2),
+            'youtube'       => 'http://youtu.be/l2gLWaGatFA',
+            'vimeo'         => 'http://vimeo.com/33677985',
+            'video1'        => 'https://youtu.be/l2gLWaGatFA',
+            'video2'        => 'https://vimeo.com/33677985',
         );
 
         $this->assertTrue($this->validate($data, $rules)->passes());
