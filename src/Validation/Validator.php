@@ -7,20 +7,6 @@ use KennedyTedesco\Validation\Respect\Factory as RuleFactory;
 class Validator extends BaseValidator
 {
     /**
-     * Validate a minimum age.
-     *
-     * @param string $attribute
-     * @param string $value
-     * @param array  $parameters
-     *
-     * @return bool
-     */
-    public function validateMinimumAge($attribute, $value, $parameters)
-    {
-        return RuleFactory::make('MinimumAge', [empty($parameters[0]) ? 18 : (int) $parameters[0], empty($parameters[1]) ? null : $parameters[1]])->validate($value);
-    }
-
-    /**
      * Validate if file exists.
      *
      * @param string $attribute
