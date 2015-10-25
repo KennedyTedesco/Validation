@@ -2,7 +2,7 @@
 namespace KennedyTedesco\Validation;
 
 use Illuminate\Validation\Validator as BaseValidator;
-use KennedyTedesco\Validation\Respect\Factory as RuleFactory;
+use KennedyTedesco\Validation\RuleFactory;
 
 class Validator extends BaseValidator
 {
@@ -20,8 +20,8 @@ class Validator extends BaseValidator
             $rule = lcfirst(substr($method, 8));
             $args = $parameters[2];
             $value = $parameters[1];
-            $ruleObject = RuleFactory::make($rule, $args);
-            return $ruleObject->validate($value);
+            $validation = RuleFactory::make($rule, $args);
+            return $validation->validate($value);
         } catch (\Exception $e) {
             return parent::__call($method, $parameters);
         }

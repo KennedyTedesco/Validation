@@ -1,17 +1,16 @@
 <?php
-namespace KennedyTedesco\Validation\Respect;
+namespace KennedyTedesco\Validation;
 
 use ReflectionClass;
 
-class Factory
+final class RuleFactory
 {
     const RULE_PATH = 'Respect\\Validation\\Rules\\';
 
     public static function make($rule, array $parameters = [])
     {
         $class = self::RULE_PATH . ucfirst($rule);
-
-        $validatorClass = new ReflectionClass($class);
-        return $validatorClass->newInstanceArgs($parameters);
+        $validator = new ReflectionClass($class);
+        return $validator->newInstanceArgs($parameters);
     }
 }
