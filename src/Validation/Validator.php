@@ -1,7 +1,6 @@
 <?php
 namespace KennedyTedesco\Validation;
 
-use Symfony\Component\Translation\TranslatorInterface;
 use Illuminate\Validation\Validator as BaseValidator;
 use KennedyTedesco\Validation\Respect\Factory as RuleFactory;
 
