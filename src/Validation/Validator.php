@@ -2,7 +2,6 @@
 namespace KennedyTedesco\Validation;
 
 use Illuminate\Validation\Validator as BaseValidator;
-use KennedyTedesco\Validation\RuleFactory;
 
 class Validator extends BaseValidator
 {
