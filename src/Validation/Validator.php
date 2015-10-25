@@ -28,20 +28,6 @@ class Validator extends BaseValidator
     }
 
     /**
-     * Validate if file exists.
-     *
-     * @param string $attribute
-     * @param string $value
-     * @param array  $parameters
-     *
-     * @return bool
-     */
-    public function validateFileExists($attribute, $value, $parameters)
-    {
-        return RuleFactory::make('exists', [])->validate($value);
-    }
-
-    /**
      * Replace all error message place-holders with actual values.
      *
      * @param  string  $message
@@ -58,5 +44,19 @@ class Validator extends BaseValidator
             array_push($search, ':parameter'.$key);
         }
         return str_replace($search, $parameters, $message);
+    }
+
+    /**
+     * Validate if file exists.
+     *
+     * @param string $attribute
+     * @param string $value
+     * @param array  $parameters
+     *
+     * @return bool
+     */
+    public function validateFileExists($attribute, $value, $parameters)
+    {
+        return RuleFactory::make('exists', [])->validate($value);
     }
 }
