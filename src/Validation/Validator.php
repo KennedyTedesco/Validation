@@ -7,6 +7,27 @@ use KennedyTedesco\Validation\Respect\Factory as RuleFactory;
 class Validator extends BaseValidator
 {
     /**
+     * Handle dynamic calls to class methods.
+     *
+     * @param string $method
+     * @param array  $parameters
+     *
+     * @return mixed
+     */
+    public function __call($method, $parameters)
+    {
+        try {
+            $rule = lcfirst(substr($method, 8));
+            $args = $parameters[2];
+            $value = $parameters[1];
+            $ruleObject = RuleFactory::make($rule, $args);
+            return $ruleObject->validate($value);
+        } catch (\Exception $e) {
+            return parent::__call($method, $parameters);
+        }
+    }
+
+    /**
      * Validate if file exists.
      *
      * @param string $attribute
@@ -37,26 +58,5 @@ class Validator extends BaseValidator
             array_push($search, ':parameter'.$key);
         }
         return str_replace($search, $parameters, $message);
-    }
-
-    /**
-     * Handle dynamic calls to class methods.
-     *
-     * @param string $method
-     * @param array  $parameters
-     *
-     * @return mixed
-     */
-    public function __call($method, $parameters)
-    {
-        try {
-            $rule = lcfirst(substr($method, 8));
-            $args = $parameters[2];
-            $value = $parameters[1];
-            $ruleObject = RuleFactory::make($rule, $args);
-            return $ruleObject->validate($value);
-        } catch (\Exception $e) {
-            return parent::__call($method, $parameters);
-        }
     }
 }
