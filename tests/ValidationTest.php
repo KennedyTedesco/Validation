@@ -4,7 +4,7 @@ class ValidationTest extends ValidationTestCase
 {
     public function testCommonRules()
     {
-        $rules = array(
+        $rules = [
             'cpf'               => 'cpf',
             'cnpj'              => 'cnpj',
             'cnh'               => 'cnh',
@@ -66,9 +66,9 @@ class ValidationTest extends ValidationTestCase
             'vimeo'         => 'videoUrl:vimeo',
             'video1'        => 'videoUrl',
             'video2'        => 'videoUrl',
-        );
+        ];
 
-        $data = array(
+        $data = [
             'cpf'               => '22205417118',
             'cnpj'              => '68518321000116',
             'cnh'               => '02650306461',
@@ -80,7 +80,7 @@ class ValidationTest extends ValidationTestCase
             'alnum'             => 'banana-123 ',
             'digit'             => '120129  21212',
             'alpha'             => 'banana',
-            'containsArray'     => array('www', 'banana', 'jfk', 'http'),
+            'containsArray'     => ['www', 'banana', 'jfk', 'http'],
             'contains'          => 'www banana jfk http',
             'countryCode'       => 'BR',
             'creditCard'        => '5555666677778884',
@@ -98,7 +98,7 @@ class ValidationTest extends ValidationTestCase
             'json'              => '{"file":"laravel.php"}',
             'leapDate'          => '1988-02-29',
             'leapYear'          => '1988',
-            'arrayVal'          => array('Brazil'),
+            'arrayVal'          => ['Brazil'],
             'lowercase'         => 'brazil',
             'macAddress'        => '00:11:22:33:44:55',
             'multiple'          => '9',
@@ -129,7 +129,7 @@ class ValidationTest extends ValidationTestCase
             'vimeo'         => 'http://vimeo.com/33677985',
             'video1'        => 'https://youtu.be/l2gLWaGatFA',
             'video2'        => 'https://vimeo.com/33677985',
-        );
+        ];
 
         $validation = $this->validate($data, $rules);
         $this->assertTrue($validation->passes(), $validation->errors());

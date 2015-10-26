@@ -1,4 +1,5 @@
 <?php
+
 namespace KennedyTedesco\Validation;
 
 use ReflectionClass;
@@ -14,13 +15,14 @@ final class RuleFactory
      * @var array Rules alias for compatibility (avoiding conflict with Laravel)
      */
     private static $alias = [
-        'FileExists' => 'Exists'
+        'FileExists' => 'Exists',
     ];
 
     public static function make($rule, array $parameters = [])
     {
-        $class = self::RULE_PATH . self::getRule($rule);
+        $class = self::RULE_PATH.self::getRule($rule);
         $validator = new ReflectionClass($class);
+
         return $validator->newInstanceArgs($parameters);
     }
 
