@@ -12,7 +12,7 @@ final class RuleFactory
     const RULE_PATH = 'Respect\\Validation\\Rules\\';
 
     /**
-     * @var array Rules alias for compatibility (avoiding conflict with Laravel)
+     * @var array
      */
     private static $alias = [
         'FileExists'    => 'Exists',
