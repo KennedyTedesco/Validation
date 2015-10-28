@@ -7,7 +7,7 @@ abstract class ValidationTestCase extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            'KennedyTedesco\Validation\ValidationServiceProvider'
+            'KennedyTedesco\Validation\ValidationServiceProvider',
         ];
     }
 

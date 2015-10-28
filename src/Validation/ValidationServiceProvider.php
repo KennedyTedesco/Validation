@@ -1,4 +1,5 @@
 <?php
+
 namespace KennedyTedesco\Validation;
 
 use Illuminate\Support\ServiceProvider;

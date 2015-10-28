@@ -4,11 +4,11 @@ class ValidationTest extends ValidationTestCase
 {
     public function testCommonRules()
     {
-        $rules = array(
+        $rules = [
             'cpf'               => 'cpf',
             'cnpj'              => 'cnpj',
             'cnh'               => 'cnh',
-            //'minimumAge'       => 'minimumAge:20',
+            //'minimumAge'        => 'minimumAge:20',
             'callback'          => 'callback:is_int',
             'charset'           => 'charset:ASCII',
             'consonant'         => 'consonant',
@@ -40,7 +40,6 @@ class ValidationTest extends ValidationTestCase
             'multiple'          => 'multiple:3',
             'negative'          => 'negative',
             'noWhitespace'      => 'noWhitespace',
-            'notArray'          => 'arr|not',
             'nullValue'         => 'nullValue',
             'numeric'           => 'numeric',
             'objectType'        => 'objectType',
@@ -54,21 +53,21 @@ class ValidationTest extends ValidationTestCase
             'roman'             => 'roman',
             'slug'              => 'slug',
             'space'             => 'space:b',
-            'tld'               => 'tld', // Top Level Domain,
-            //'uploaded'        => 'uploaded',
+            'tld'               => 'tld',
+            //'uploaded'          => 'uploaded',
             'uppercase'         => 'uppercase',
             'version'           => 'version',
-            'xdigit'            => 'xdigit', // Hexadecimal
+            'xdigit'            => 'xdigit',
             'writable'          => 'writable',
             'alwaysValid'       => 'alwaysValid',
-            'bool'              => 'bool',
-            'youtube'       => 'videoUrl:youtube',
-            'vimeo'         => 'videoUrl:vimeo',
-            'video1'        => 'videoUrl',
-            'video2'        => 'videoUrl',
-        );
+            'boolType'          => 'boolType',
+            'youtube'           => 'videoUrl:youtube',
+            'vimeo'             => 'videoUrl:vimeo',
+            'video1'            => 'videoUrl',
+            'video2'            => 'videoUrl',
+        ];
 
-        $data = array(
+        $data = [
             'cpf'               => '22205417118',
             'cnpj'              => '68518321000116',
             'cnh'               => '02650306461',
@@ -80,7 +79,7 @@ class ValidationTest extends ValidationTestCase
             'alnum'             => 'banana-123 ',
             'digit'             => '120129  21212',
             'alpha'             => 'banana',
-            'containsArray'     => array('www', 'banana', 'jfk', 'http'),
+            'containsArray'     => ['www', 'banana', 'jfk', 'http'],
             'contains'          => 'www banana jfk http',
             'countryCode'       => 'BR',
             'creditCard'        => '5555666677778884',
@@ -98,7 +97,7 @@ class ValidationTest extends ValidationTestCase
             'json'              => '{"file":"laravel.php"}',
             'leapDate'          => '1988-02-29',
             'leapYear'          => '1988',
-            'arrayVal'          => array('Brazil'),
+            'arrayVal'          => ['Brazil'],
             'lowercase'         => 'brazil',
             'macAddress'        => '00:11:22:33:44:55',
             'multiple'          => '9',
@@ -118,18 +117,18 @@ class ValidationTest extends ValidationTestCase
             'slug'              => 'laravel-brazil',
             'space'             => '              b      ',
             'tld'               => 'com',
-            //'uploaded'        => 'path to file',
+            //'uploaded'          => 'path to file',
             'uppercase'         => 'BRAZIL',
             'version'           => '1.0.0',
             'xdigit'            => 'abc123',
             'writable'          => __FILE__,
             'alwaysValid'       => '@#$_',
-            'bool'              => is_int(2),
-            'youtube'       => 'http://youtu.be/l2gLWaGatFA',
-            'vimeo'         => 'http://vimeo.com/33677985',
-            'video1'        => 'https://youtu.be/l2gLWaGatFA',
-            'video2'        => 'https://vimeo.com/33677985',
-        );
+            'boolType'          => is_int(2),
+            'youtube'           => 'http://youtu.be/l2gLWaGatFA',
+            'vimeo'             => 'http://vimeo.com/33677985',
+            'video1'            => 'https://youtu.be/l2gLWaGatFA',
+            'video2'            => 'https://vimeo.com/33677985',
+        ];
 
         $validation = $this->validate($data, $rules);
         $this->assertTrue($validation->passes(), $validation->errors());

@@ -1,4 +1,5 @@
 <?php
+
 namespace KennedyTedesco\Validation;
 
 use Illuminate\Validation\Validator as BaseValidator;
@@ -20,6 +21,7 @@ class Validator extends BaseValidator
             $args = $parameters[2];
             $value = $parameters[1];
             $validation = RuleFactory::make($rule, $args);
+
             return $validation->validate($value);
         } catch (\Exception $e) {
             return parent::__call($method, $parameters);
@@ -42,6 +44,7 @@ class Validator extends BaseValidator
         foreach ($parameters as $key => $parameter) {
             array_push($search, ':parameter'.$key);
         }
+
         return str_replace($search, $parameters, $message);
     }
 }
