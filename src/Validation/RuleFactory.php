@@ -10,6 +10,7 @@ final class RuleFactory
      * @const string
      */
     const RULE_PATH = 'Respect\\Validation\\Rules\\';
+
     /**
      * @var array Rules alias for compatibility (avoiding conflict with Laravel)
      */
