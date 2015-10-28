@@ -15,7 +15,16 @@ final class RuleFactory
      * @var array Rules alias for compatibility (avoiding conflict with Laravel)
      */
     private static $alias = [
-        'FileExists' => 'Exists',
+        'FileExists'    => 'Exists',
+        'Arr'           => 'ArrayVal',
+        'Bool'          => 'BoolType',
+        'False'         => 'FalseVal',
+        'Float'         => 'FloatVal',
+        'Int'           => 'IntVal',
+        'NullValue'     => 'NullType',
+        'Object'        => 'ObjectType',
+        'String'        => 'StringType',
+        'True'          => 'TrueVal',
     ];
 
     /**
