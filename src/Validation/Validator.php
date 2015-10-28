@@ -2,6 +2,7 @@
 
 namespace KennedyTedesco\Validation;
 
+use Exception;
 use Illuminate\Validation\Validator as BaseValidator;
 
 class Validator extends BaseValidator
@@ -23,7 +24,7 @@ class Validator extends BaseValidator
             $validation = RuleFactory::make($rule, $args);
 
             return $validation->validate($value);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return parent::__call($method, $parameters);
         }
     }
