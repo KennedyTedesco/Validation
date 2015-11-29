@@ -8,7 +8,7 @@ class ValidationTest extends ValidationTestCase
             'cpf'               => 'cpf',
             'cnpj'              => 'cnpj',
             'cnh'               => 'cnh',
-            //'minimumAge'        => 'minimumAge:20',
+            'minimumAge'        => 'minimumAge:20',
             'callback'          => 'callback:is_int',
             'charset'           => 'charset:ASCII',
             'consonant'         => 'consonant',
@@ -28,6 +28,7 @@ class ValidationTest extends ValidationTestCase
             'equals'            => 'equals:banana',
             'even'              => 'even',
             'floatVal'          => 'floatVal',
+            'float'             => 'floatVal',
             'graph'             => 'graph',
             'instance'          => 'instance:DateTime',
             'int'               => 'int',
@@ -35,6 +36,7 @@ class ValidationTest extends ValidationTestCase
             'leapDate'          => 'leapDate:Y-m-d',
             'leapYear'          => 'leapYear',
             'arrayVal'          => 'arrayVal',
+            'Arr'               => 'arrayVal',
             'lowercase'         => 'lowercase',
             'macAddress'        => 'macAddress',
             'multiple'          => 'multiple:3',
@@ -132,5 +134,18 @@ class ValidationTest extends ValidationTestCase
 
         $validation = $this->validate($data, $rules);
         $this->assertTrue($validation->passes(), $validation->errors());
+    }
+
+    public function testCustomMessage()
+    {
+        $rules = ['number' => ['required', 'floatType']];
+        $data = ['number' => 9];
+        $messages = [
+            'float_type' => 'The :attribute field must be a float.',
+        ];
+
+        $validation = $this->validate($data, $rules, $messages);
+        $this->assertFalse($validation->passes(), $validation->errors());
+        $this->assertEquals('The number field must be a float.', $validation->errors()->first());
     }
 }
