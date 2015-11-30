@@ -15,7 +15,7 @@ In the **require** key of **composer.json** file add the following:
 "kennedytedesco/validation": "~2.0"
 ```
 
-### Laravel 4.2 and Below
+#### Laravel 4.2 and Below
 
 In the **require** key of **composer.json** file add the following:
 
@@ -41,7 +41,7 @@ In your **config/app.php** add *'KennedyTedesco\Validation\ValidationServiceProv
 ),
 ```
 
-## Supported rules (with examples) 
+## Supported rules (with examples)
 
 ```php
 // Rules
@@ -179,10 +179,10 @@ $validator = \Validator::make($data, $rules);
 if( $validator->fails() )
 {
     // Print errors
-    $messages = $validator->messages();            
+    $messages = $validator->messages();
     foreach ($messages->all() as $message) {
         echo '<li>'.$message.'</li>';
-    }            
+    }
 }
 else
 {
