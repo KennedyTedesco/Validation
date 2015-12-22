@@ -7,23 +7,28 @@ Validation (Laravel Package)
 
 *"The power of 'Respect Validation' on Laravel"*
 
-### Laravel 5.0 and Laravel 5.1
+## Version Compatibility
 
-In the **require** key of **composer.json** file add the following:
+ Laravel  | kennedytedesco/validation
+:---------|:----------
+ **5.2.x**    | `"kennedytedesco/validation": "~3.0"`
+ 5.1.x    | `"kennedytedesco/validation": "~2.0"`
+ 5.0.x    | `"kennedytedesco/validation": "~2.0"`
+ 4.2.x    | `"kennedytedesco/validation": "~1.0"`
+ 4.1.x    | `"kennedytedesco/validation": "~1.0"`
+ 4.0.x    | `"kennedytedesco/validation": "~1.0"`
 
-```php
-"kennedytedesco/validation": "~2.0"
+## Installation
+
+Put the following in your `composer.json` file:
+
+```json
+{
+    "require": {
+        "kennedytedesco/validation": "~3.0"
+    }
+}
 ```
-
-#### Laravel 4.2 and Below
-
-In the **require** key of **composer.json** file add the following:
-
-```php
-"kennedytedesco/validation": "~1.0"
-```
-
-**Important:** Do not use `dev-master`. Instead, use the tagged version, like shown before.
 
 Run the Composer **update** comand:
 
