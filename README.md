@@ -201,4 +201,8 @@ else
 
 For more details about the available rules:
 
+http://respect.github.io/Validation/docs/validators.html
+
+Repository of Respect Validation:
+
 https://github.com/Respect/Validation
