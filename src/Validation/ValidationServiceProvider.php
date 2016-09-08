@@ -13,6 +13,7 @@ class ValidationServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        //
     }
 
     /**
