@@ -11,7 +11,8 @@ Validation (Laravel Package)
 
  Laravel  | kennedytedesco/validation
 :---------|:----------
- **5.2.x**    | `"kennedytedesco/validation": "~3.0"`
+ **5.3.x**    | `"kennedytedesco/validation": "~3.0"`
+ 5.2.x    | `"kennedytedesco/validation": "~3.0"`
  5.1.x    | `"kennedytedesco/validation": "~2.0"`
  5.0.x    | `"kennedytedesco/validation": "~2.0"`
  4.2.x    | `"kennedytedesco/validation": "~1.0"`
@@ -198,8 +199,6 @@ else
 
 # Respect Validation
 
-For more details on the rules:
+For more details about the available rules:
 
 https://github.com/Respect/Validation
-
-Tks for Respect: **The most awesome validation engine ever created for PHP!**
