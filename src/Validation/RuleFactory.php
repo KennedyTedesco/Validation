@@ -36,6 +36,7 @@ final class RuleFactory
     public static function make($rule, array $parameters = [])
     {
         $class = self::RULE_PATH.self::getRule($rule);
+
         $validator = new ReflectionClass($class);
 
         return $validator->newInstanceArgs($parameters);
