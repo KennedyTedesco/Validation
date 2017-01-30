@@ -6,6 +6,7 @@ php:
   - 7.1
 
 matrix:
+  fast_finish: true
   include:
     - php: 5.6
       env: setup=lowest
@@ -16,7 +17,4 @@ sudo: false
 
 install: travis_retry composer install --no-interaction --prefer-source
 
-matrix:
-  allow_failures:
-    - php: 7.1
-  fast_finish: true
+script: vendor/bin/phpunit
