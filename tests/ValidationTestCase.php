@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use Orchestra\Testbench\TestCase;
 
 abstract class ValidationTestCase extends TestCase

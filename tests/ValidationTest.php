@@ -1,5 +1,10 @@
 <?php
 
+namespace Tests;
+
+use stdClass;
+use Datetime;
+
 class ValidationTest extends ValidationTestCase
 {
     public function testCommonRules()
