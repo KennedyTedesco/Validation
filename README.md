@@ -11,7 +11,8 @@ Validation (Laravel Package)
 
  Laravel  | kennedytedesco/validation
 :---------|:----------
- **5.4.x**    | `"kennedytedesco/validation": "~4.0"`
+ **5.5.x**    | `"kennedytedesco/validation": "~5.0"`
+ 5.4.x    | `"kennedytedesco/validation": "~4.0"`
  5.3.x    | `"kennedytedesco/validation": "~3.0"`
  5.2.x    | `"kennedytedesco/validation": "~3.0"`
  5.1.x    | `"kennedytedesco/validation": "~2.0"`
@@ -22,12 +23,12 @@ Validation (Laravel Package)
 
 ## Installation
 
-Put the following in your `composer.json` file:
+Put the following in your `composer.json` file (`~5.0` if your Laravel version is 5.5):
 
 ```json
 {
     "require": {
-        "kennedytedesco/validation": "~3.0"
+        "kennedytedesco/validation": "~5.0"
     }
 }
 ```

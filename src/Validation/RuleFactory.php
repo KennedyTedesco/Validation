@@ -6,9 +6,6 @@ use ReflectionClass;
 
 final class RuleFactory
 {
-    /**
-     * @const string
-     */
     const RULE_PATH = 'Respect\\Validation\\Rules\\';
 
     /**
@@ -28,10 +25,9 @@ final class RuleFactory
     ];
 
     /**
-     * @param mixed $rule
+     * @param $rule
      * @param array $parameters
-     *
-     * @return mixed
+     * @return object
      */
     public static function make($rule, array $parameters = [])
     {
@@ -43,12 +39,11 @@ final class RuleFactory
     }
 
     /**
-     * @param mixed $rule
-     *
+     * @param $rule
      * @return mixed
      */
     private static function getRule($rule)
     {
-        return isset(self::$alias[$rule]) ? self::$alias[$rule] : $rule;
+        return self::$alias[$rule] ?? $rule;
     }
 }

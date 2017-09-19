@@ -7,7 +7,7 @@ use Orchestra\Testbench\TestCase;
 abstract class ValidationTestCase extends TestCase
 {
     /**
-     * @param $app
+     * @param \Illuminate\Foundation\Application $app
      * @return array
      */
     protected function getPackageProviders($app)
