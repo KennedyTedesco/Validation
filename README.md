@@ -11,6 +11,7 @@ Validation (Laravel Package)
 
  Laravel  | kennedytedesco/validation
 :---------|:----------
+ **5.6.x**    | `"kennedytedesco/validation": "~5.0"`
  **5.5.x**    | `"kennedytedesco/validation": "~5.0"`
  5.4.x    | `"kennedytedesco/validation": "~4.0"`
  5.3.x    | `"kennedytedesco/validation": "~3.0"`
