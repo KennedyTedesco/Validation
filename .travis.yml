@@ -1,5 +1,9 @@
 language: php
 
+env:
+  global:
+    - setup=stable
+
 matrix:
   fast_finish: true
   include:
@@ -14,6 +18,10 @@ matrix:
       env: setup=lowest
 
 sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 install: travis_retry composer install --no-interaction --prefer-source
 

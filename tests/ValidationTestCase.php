@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Orchestra\Testbench\TestCase;
+use KennedyTedesco\Validation\ValidationServiceProvider;
 
 abstract class ValidationTestCase extends TestCase
 {
@@ -12,9 +13,7 @@ abstract class ValidationTestCase extends TestCase
      */
     protected function getPackageProviders($app)
     {
-        return [
-            'KennedyTedesco\Validation\ValidationServiceProvider',
-        ];
+        return [ValidationServiceProvider::class];
     }
 
     /**

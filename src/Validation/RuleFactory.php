@@ -6,11 +6,6 @@ use ReflectionClass;
 
 final class RuleFactory
 {
-    const RULE_PATH = 'Respect\\Validation\\Rules\\';
-
-    /**
-     * @var array
-     */
     private static $alias = [
         'FileExists'    => 'Exists',
         'Arr'           => 'ArrayVal',
@@ -24,26 +19,12 @@ final class RuleFactory
         'True'          => 'TrueVal',
     ];
 
-    /**
-     * @param $rule
-     * @param array $parameters
-     * @return object
-     */
-    public static function make($rule, array $parameters = [])
+    public static function make(string $rule, array $parameters = [])
     {
-        $class = self::RULE_PATH.self::getRule($rule);
+        $class = 'Respect\\Validation\\Rules\\'.(self::$alias[$rule] ?? $rule);
 
         $validator = new ReflectionClass($class);
 
         return $validator->newInstanceArgs($parameters);
-    }
-
-    /**
-     * @param $rule
-     * @return mixed
-     */
-    private static function getRule($rule)
-    {
-        return self::$alias[$rule] ?? $rule;
     }
 }
