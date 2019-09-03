@@ -11,7 +11,7 @@ The power of 'Respect Validation' on Laravel.
 
  Laravel  | kennedytedesco/validation
 :---------|:----------
- 6.x      | `"kennedytedesco/validation": "^6.0"`
+ **6.x**      | `"kennedytedesco/validation": "^6.0"`
  5.8.x    | `"kennedytedesco/validation": "^5.0"`
  5.7.x    | `"kennedytedesco/validation": "^5.0"`
  5.6.x    | `"kennedytedesco/validation": "^5.0"`
