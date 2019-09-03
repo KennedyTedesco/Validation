@@ -17,7 +17,6 @@ The power of [Respect Validation](https://github.com/Respect/Validation) on Lara
  5.7.x    | `composer require kennedytedesco/validation:^5.0`
  5.6.x    | `composer require kennedytedesco/validation:^5.0`
  5.5.x    | `composer require kennedytedesco/validation:^5.0`
- 5.4.x    | `composer require kennedytedesco/validation:^5.0`
 
 ## Installation
 
