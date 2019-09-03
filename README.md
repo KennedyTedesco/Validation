@@ -17,13 +17,6 @@ The power of 'Respect Validation' on Laravel.
  5.6.x    | `"kennedytedesco/validation": "^5.0"`
  5.5.x    | `"kennedytedesco/validation": "^5.0"`
  5.4.x    | `"kennedytedesco/validation": "^4.0"`
- 5.3.x    | `"kennedytedesco/validation": "^3.0"`
- 5.2.x    | `"kennedytedesco/validation": "^3.0"`
- 5.1.x    | `"kennedytedesco/validation": "^2.0"`
- 5.0.x    | `"kennedytedesco/validation": "^2.0"`
- 4.2.x    | `"kennedytedesco/validation": "^1.0"`
- 4.1.x    | `"kennedytedesco/validation": "^1.0"`
- 4.0.x    | `"kennedytedesco/validation": "^1.0"`
 
 ## Installation
 
