@@ -1,17 +1,18 @@
+kennedytedesco/validation
+==========
+
+The power of [Respect Validation](https://github.com/Respect/Validation) on Laravel.
+
 [![Build Status](https://travis-ci.org/KennedyTedesco/Validation.svg)](https://travis-ci.org/KennedyTedesco/Validation)
 [![Total Downloads](https://poser.pugx.org/KennedyTedesco/Validation/downloads.svg)](https://packagist.org/packages/KennedyTedesco/Validation)
 [![Latest Stable Version](https://poser.pugx.org/KennedyTedesco/Validation/v/stable.svg)](https://packagist.org/packages/KennedyTedesco/Validation)
-
-KennedyTedesco/Validation
-==========
-
-The power of 'Respect Validation' on Laravel.
+[![License](https://poser.pugx.org/orchestra/testbench/license)](https://packagist.org/packages/orchestra/testbench)
 
 ## Version Compatibility
 
  Laravel  | kennedytedesco/validation
 :---------|:----------
- **6.x**      | `"kennedytedesco/validation": "^6.0"`
+ **6.x**  | `"kennedytedesco/validation": "^6.0"`
  5.8.x    | `"kennedytedesco/validation": "^5.0"`
  5.7.x    | `"kennedytedesco/validation": "^5.0"`
  5.6.x    | `"kennedytedesco/validation": "^5.0"`
