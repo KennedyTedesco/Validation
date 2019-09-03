@@ -1,29 +1,29 @@
 <?php
 
-namespace KennedyTedesco\Validation;
+declare(strict_types=1);
 
-use ReflectionClass;
+namespace KennedyTedesco\Validation;
 
 final class RuleFactory
 {
     private static $alias = [
-        'FileExists'    => 'Exists',
-        'Arr'           => 'ArrayVal',
-        'Bool'          => 'BoolType',
-        'False'         => 'FalseVal',
-        'Float'         => 'FloatVal',
-        'Int'           => 'IntVal',
-        'NullValue'     => 'NullType',
-        'Object'        => 'ObjectType',
-        'String'        => 'StringType',
-        'True'          => 'TrueVal',
+        'FileExists' => 'Exists',
+        'Arr' => 'ArrayVal',
+        'Bool' => 'BoolType',
+        'False' => 'FalseVal',
+        'Float' => 'FloatVal',
+        'Int' => 'IntVal',
+        'NullValue' => 'NullType',
+        'Object' => 'ObjectType',
+        'String' => 'StringType',
+        'True' => 'TrueVal',
     ];
 
     public static function make(string $rule, array $parameters = [])
     {
-        $class = 'Respect\\Validation\\Rules\\'.(self::$alias[$rule] ?? $rule);
-
-        $validator = new ReflectionClass($class);
+        $validator = new \ReflectionClass(
+            'Respect\\Validation\\Rules\\'.(self::$alias[$rule] ?? $rule)
+        );
 
         return $validator->newInstanceArgs($parameters);
     }

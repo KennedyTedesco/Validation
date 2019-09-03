@@ -2,18 +2,19 @@
 [![Total Downloads](https://poser.pugx.org/KennedyTedesco/Validation/downloads.svg)](https://packagist.org/packages/KennedyTedesco/Validation)
 [![Latest Stable Version](https://poser.pugx.org/KennedyTedesco/Validation/v/stable.svg)](https://packagist.org/packages/KennedyTedesco/Validation)
 
-Validation (Laravel Package)
+KennedyTedesco/Validation
 ==========
 
-*"The power of 'Respect Validation' on Laravel"*
+The power of 'Respect Validation' on Laravel.
 
 ## Version Compatibility
 
  Laravel  | kennedytedesco/validation
 :---------|:----------
- **5.8.x**    | `"kennedytedesco/validation": "^5.0"`
- **5.7.x**    | `"kennedytedesco/validation": "^5.0"`
- **5.6.x**    | `"kennedytedesco/validation": "^5.0"`
+ 6.x      | `"kennedytedesco/validation": "^6.0"`
+ 5.8.x    | `"kennedytedesco/validation": "^5.0"`
+ 5.7.x    | `"kennedytedesco/validation": "^5.0"`
+ 5.6.x    | `"kennedytedesco/validation": "^5.0"`
  5.5.x    | `"kennedytedesco/validation": "^5.0"`
  5.4.x    | `"kennedytedesco/validation": "^4.0"`
  5.3.x    | `"kennedytedesco/validation": "^3.0"`
@@ -26,31 +27,19 @@ Validation (Laravel Package)
 
 ## Installation
 
-Put the following in your `composer require` (`^5.0` if your Laravel version is 5.5):
-
 ```php
-composer require kennedytedesco/validation: "^5.0"
-```
-
-In your **config/app.php** add *'KennedyTedesco\Validation\ValidationServiceProvider'* to the end of the **'providers'** array:
-
-```php
-'providers' => array(
-    ...
-    ...
-    'KennedyTedesco\Validation\ValidationServiceProvider',
-),
+composer require kennedytedesco/validation: "^6.0"
 ```
 
 ## Supported rules (with examples)
 
 ```php
 // Rules
-$rules = array(
+$rules = [
     'cpf'               => 'cpf',
     'cnpj'              => 'cnpj',
     'cnh'               => 'cnh',
-    //'minimumAge'        => 'minimumAge:20',
+    'minimumAge'        => 'minimumAge:20',
     'callback'          => 'callback:is_int',
     'charset'           => 'charset:ASCII',
     'consonant'         => 'consonant',
@@ -96,7 +85,7 @@ $rules = array(
     'slug'              => 'slug',
     'space'             => 'space:b',
     'tld'               => 'tld',
-    //'uploaded'          => 'uploaded',
+    'uploaded'          => 'uploaded',
     'uppercase'         => 'uppercase',
     'version'           => 'version',
     'xdigit'            => 'xdigit',
@@ -107,14 +96,13 @@ $rules = array(
     'vimeo'             => 'videoUrl:vimeo',
     'video1'            => 'videoUrl',
     'video2'            => 'videoUrl',
-);
+];
 
-// Data
-$data = array(
+$data = [
     'cpf'               => '22205417118',
     'cnpj'              => '68518321000116',
     'cnh'               => '02650306461',
-    //'minimumAge'        => '10/10/1990',
+    'minimumAge'        => '10/10/1990',
     'callback'          => 20,
     'charset'           => 'acucar',
     'consonant'         => 'dcfg',
@@ -160,7 +148,7 @@ $data = array(
     'slug'              => 'laravel-brazil',
     'space'             => '              b      ',
     'tld'               => 'com',
-    //'uploaded'          => 'path to file',
+    'uploaded'          => 'path to file',
     'uppercase'         => 'BRAZIL',
     'version'           => '1.0.0',
     'xdigit'            => 'abc123',
@@ -171,32 +159,20 @@ $data = array(
     'vimeo'             => 'http://vimeo.com/33677985',
     'video1'            => 'https://youtu.be/l2gLWaGatFA',
     'video2'            => 'https://vimeo.com/33677985',
-);
+];
 
-// Make the validation
 $validator = \Validator::make($data, $rules);
 
-// Result
-if( $validator->fails() )
-{
-    // Print errors
-    $messages = $validator->messages();
-    foreach ($messages->all() as $message) {
-        echo '<li>'.$message.'</li>';
-    }
-}
-else
-{
-    // Success
-    echo 'True.';
+if ($validator->passes()) {
+    // Do something
 }
 ```
 
-# Respect Validation
+# For more validation rules
 
-For more details about the available rules:
+See all available rules here:
 
-http://respect.github.io/Validation/docs/validators.html
+https://respect-validation.readthedocs.io/en/1.1/list-of-rules/
 
 Repository of Respect Validation:
 

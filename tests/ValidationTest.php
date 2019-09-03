@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests;
 
-use stdClass;
-use Datetime;
+use Illuminate\Support\MessageBag;
 
 class ValidationTest extends ValidationTestCase
 {
-    public function testCommonRules()
+    public function test_common_rules(): void
     {
         $rules = [
             'cpf'               => 'cpf',
@@ -61,7 +62,6 @@ class ValidationTest extends ValidationTestCase
             'slug'              => 'slug',
             'space'             => 'space:b',
             'tld'               => 'tld',
-            //'uploaded'          => 'uploaded',
             'uppercase'         => 'uppercase',
             'version'           => 'version',
             'xdigit'            => 'xdigit',
@@ -78,7 +78,6 @@ class ValidationTest extends ValidationTestCase
             'cpf'               => '22205417118',
             'cnpj'              => '68518321000116',
             'cnh'               => '02650306461',
-            //'minimumAge'        => '10/10/1990',
             'callback'          => 20,
             'charset'           => 'acucar',
             'consonant'         => 'dcfg',
@@ -99,7 +98,7 @@ class ValidationTest extends ValidationTestCase
             'even'              => 8,
             'floatVal'          => 9.8,
             'graph'             => 'LKM@#$%4;',
-            'instance'          => new Datetime(),
+            'instance'          => new \Datetime(),
             'int'               => 9,
             'json'              => '{"file":"laravel.php"}',
             'leapDate'          => '1988-02-29',
@@ -112,7 +111,7 @@ class ValidationTest extends ValidationTestCase
             'noWhitespace'      => 'laravelBrazil',
             'nullValue'         => null,
             'numeric'           => '179.9',
-            'objectType'        => new stdClass(),
+            'objectType'        => new \stdClass(),
             'odd'               => 3,
             'perfectSquare'     => 25,
             'positive'          => 1,
@@ -124,13 +123,12 @@ class ValidationTest extends ValidationTestCase
             'slug'              => 'laravel-brazil',
             'space'             => '              b      ',
             'tld'               => 'com',
-            //'uploaded'          => 'path to file',
             'uppercase'         => 'BRAZIL',
             'version'           => '1.0.0',
             'xdigit'            => 'abc123',
             'writable'          => __FILE__,
             'alwaysValid'       => '@#$_',
-            'boolType'          => is_int(2),
+            'boolType'          => \is_int(2),
             'youtube'           => 'http://youtu.be/l2gLWaGatFA',
             'vimeo'             => 'http://vimeo.com/33677985',
             'video1'            => 'https://youtu.be/l2gLWaGatFA',
@@ -138,10 +136,11 @@ class ValidationTest extends ValidationTestCase
         ];
 
         $validation = $this->validate($data, $rules);
-        $this->assertTrue($validation->passes(), $validation->errors());
+        $this->assertTrue($validation->passes());
+        $this->assertEmpty($validation->errors());
     }
 
-    public function testCustomMessage()
+    public function test_custom_message(): void
     {
         $rules = ['number' => ['required', 'floatType']];
         $data = ['number' => 9];
@@ -150,7 +149,32 @@ class ValidationTest extends ValidationTestCase
         ];
 
         $validation = $this->validate($data, $rules, $messages);
-        $this->assertFalse($validation->passes(), $validation->errors());
+        $this->assertFalse($validation->passes());
+        $this->assertInstanceOf(MessageBag::class, $validation->errors());
         $this->assertEquals('The number field must be a float.', $validation->errors()->first());
+    }
+
+    public function test_laravel_rule(): void
+    {
+        $validation = $this->validate([
+            'age' => 20,
+        ], [
+            'age' => ['int', 'gte:20',],
+        ]);
+
+        $this->assertTrue($validation->passes());
+    }
+
+    public function test_invalid_rule(): void
+    {
+        $this->expectException(\BadMethodCallException::class);
+
+        $validation = $this->validate([
+            'age' => 20,
+        ], [
+            'age' => ['int', 'foobar:20',],
+        ]);
+
+        $validation->validate();
     }
 }

@@ -1,28 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests;
 
 use Orchestra\Testbench\TestCase;
+use Illuminate\Validation\Validator;
 use KennedyTedesco\Validation\ValidationServiceProvider;
 
 abstract class ValidationTestCase extends TestCase
 {
-    /**
-     * @param \Illuminate\Foundation\Application $app
-     * @return array
-     */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
-        return [ValidationServiceProvider::class];
+        return [
+            ValidationServiceProvider::class
+        ];
     }
 
-    /**
-     * @param array $data
-     * @param array $rules
-     * @param array $messages
-     * @return mixed
-     */
-    protected function validate(array $data, array $rules, array $messages = [])
+    protected function validate(array $data, array $rules, array $messages = []): Validator
     {
         return $this->app->make('validator')->make($data, $rules, $messages);
     }

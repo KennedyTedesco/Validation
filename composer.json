@@ -10,14 +10,16 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
-        "respect/validation": "1.1.*",
-        "illuminate/support": "5.5.*|5.6.*|5.7.*|5.8.*"
+        "php": ">=7.2",
+        "illuminate/support": "^6.0",
+        "respect/validation": "^1.1"
     },
     "require-dev": {
-        "laravel/framework": "5.8.*",
-        "orchestra/testbench": "3.8.*",
-        "phpunit/phpunit": "^7.5"
+        "roave/security-advisories": "dev-master",
+        "laravel/framework": "^6.0",
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0",
+        "friendsofphp/php-cs-fixer": "^2.15"
     },
     "autoload": {
         "psr-4": {
@@ -29,12 +31,18 @@
             "Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
+    "scripts": {
+        "cs": [
+            "vendor/bin/php-cs-fixer fix --allow-risky yes"
+        ]
+    },
     "extra": {
         "laravel": {
             "providers": [
                 "KennedyTedesco\\Validation\\ValidationServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

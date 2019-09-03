@@ -1,26 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace KennedyTedesco\Validation;
 
-use Exception;
 use Illuminate\Validation\Validator as BaseValidator;
 
-class Validator extends BaseValidator
+final class Validator extends BaseValidator
 {
-    /**
-     * @param string $method
-     * @param array $parameters
-     * @return mixed
-     */
     public function __call($method, $parameters)
     {
         try {
-            $rule = substr($method, 8);
-            $args = $parameters[2];
-            $value = $parameters[1];
+            $rule = \mb_substr($method, 8);
+
+            [$value, $args] = [
+                $parameters[1],
+                $parameters[2],
+            ];
 
             return RuleFactory::make($rule, $args)->validate($value);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return parent::__call($method, $parameters);
         }
     }
