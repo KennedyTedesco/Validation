@@ -72,12 +72,15 @@ class ValidationTest extends ValidationTestCase
             'vimeo'             => ['videoUrl:vimeo',],
             'video1'            => ['videoUrl',],
             'video2'            => ['videoUrl',],
+            'email'             => ['email:rfc,dns'],
+            'age'               => ['age:18,60',],
         ];
 
         $data = [
             'cpf'               => '22205417118',
             'cnpj'              => '68518321000116',
             'cnh'               => '02650306461',
+            'minimumAge'        => '1990-11-13',
             'callback'          => 20,
             'charset'           => 'acucar',
             'consonant'         => 'dcfg',
@@ -133,6 +136,8 @@ class ValidationTest extends ValidationTestCase
             'vimeo'             => 'http://vimeo.com/33677985',
             'video1'            => 'https://youtu.be/l2gLWaGatFA',
             'video2'            => 'https://vimeo.com/33677985',
+            'email'             => 'foo@google.com',
+            'age'               => '1990-11-13',
         ];
 
         $validation = $this->validate($data, $rules);
