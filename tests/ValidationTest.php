@@ -157,12 +157,34 @@ class ValidationTest extends ValidationTestCase
     public function test_laravel_rule(): void
     {
         $validation = $this->validate([
-            'age' => 20,
+            'distinct' => [
+                [
+                    'id' => 20,
+                ],
+                [
+                    'id' => 21,
+                ],
+            ],
         ], [
-            'age' => ['int', 'gte:20',],
+            'distinct.*.id' => ['distinct',],
         ]);
 
         $this->assertTrue($validation->passes());
+
+        $validation = $this->validate([
+            'distinct' => [
+                [
+                    'id' => 20,
+                ],
+                [
+                    'id' => 20,
+                ],
+            ],
+        ], [
+            'distinct.*.id' => ['distinct',],
+        ]);
+
+        $this->assertFalse($validation->passes());
     }
 
     public function test_invalid_rule(): void
