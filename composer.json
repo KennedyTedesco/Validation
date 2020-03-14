@@ -11,14 +11,13 @@
     ],
     "require": {
         "php": ">=7.2",
-        "illuminate/support": "^6.0",
+        "illuminate/support": "^7.0",
         "respect/validation": "^1.1"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
-        "laravel/framework": "^6.0",
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.0",
+        "laravel/framework": "^7.0",
+        "orchestra/testbench": "^5.1",
+        "phpunit/phpunit": "^8.5|^9.0",
         "friendsofphp/php-cs-fixer": "^2.15"
     },
     "autoload": {

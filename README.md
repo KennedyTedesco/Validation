@@ -12,7 +12,8 @@ The power of [Respect Validation](https://github.com/Respect/Validation) on Lara
 
  Laravel  | kennedytedesco/validation
 :---------|:----------
- **6.x**  | `composer require kennedytedesco/validation:^6.0`
+ **7.x**  | `composer require kennedytedesco/validation:^7.0`
+ 6.x  | `composer require kennedytedesco/validation:^6.0`
  5.8.x    | `composer require kennedytedesco/validation:^5.0`
  5.7.x    | `composer require kennedytedesco/validation:^5.0`
  5.6.x    | `composer require kennedytedesco/validation:^5.0`
@@ -21,7 +22,7 @@ The power of [Respect Validation](https://github.com/Respect/Validation) on Lara
 ## Installation
 
 ```php
-composer require kennedytedesco/validation:^6.0
+composer require kennedytedesco/validation:^7.0
 ```
 
 ## Supported rules (with examples)

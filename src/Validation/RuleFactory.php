@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace KennedyTedesco\Validation;
 
+use ReflectionClass;
+
 final class RuleFactory
 {
     private static $alias = [
@@ -21,7 +23,7 @@ final class RuleFactory
 
     public static function make(string $rule, array $parameters = [])
     {
-        $validator = new \ReflectionClass(
+        $validator = new ReflectionClass(
             'Respect\\Validation\\Rules\\'.(self::$alias[$rule] ?? $rule)
         );
 
